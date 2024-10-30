@@ -1,0 +1,40 @@
+.subckt opamp en_bias_h gd inm inp out vph
+*.PININFO en_bias_h:I gd:I inm:I inp:I out:I vph:I
+M_dm_Md3 vph vbp vph vph pch_18_mac l=0.152u nfin=5 m=6
+M_pd_Men0 vbp en_bias_h vph vph pch_18_mac l=0.152u nfin=7 m=1
+M_pd_Men1 out en_bias_h vph vph pch_18_mac l=0.152u nfin=7 m=1
+XMt net2224 vbp vph vph spfinhv_1 m=1
+XMref vbp vbp vph vph spfinhv_1 m=1
+XMlop out vbp vph vph spfinhv_2 m=1
+XMbcas vbcn vbp vph vph spfinhv_2 m=1
+XMdp0 bn3 inp net2224 vph spfinhv_3 m=1
+XMdp1 bn2 inm net2224 vph spfinhv_3 m=1
+X_dm_dp0<1> net2224 vph vph vph spfinhv_4 m=1
+X_dm_dp0<0> net2224 vph vph vph spfinhv_4 m=1
+X_dm_dp1<1> net2224 vph vph vph spfinhv_4 m=1
+X_dm_dp1<0> net2224 vph vph vph spfinhv_4 m=1
+xrR140 net2197 vbp vph rhim_m wr=0.4u lr=5.866e-6 r=9.5k m=1
+xrRb0 net2180 net2197 vph rhim_m wr=0.4u lr=5.866e-6 r=9.5k m=1
+xrR112 net2183 net2182 vph rhim_m wr=0.4u lr=5.866e-6 r=9.5k m=1
+xrR113 netk0 net2183 vph rhim_m wr=0.4u lr=5.866e-6 r=9.5k m=1
+xrR111 net2182 net2181 vph rhim_m wr=0.4u lr=5.866e-6 r=9.5k m=1
+xrR110 net2181 net2180 vph rhim_m wr=0.4u lr=5.866e-6 r=9.5k m=1
+X_dm_N104<0> gd gd gd gd snfinhv_1 m=1
+X_dm_N104<1> gd gd gd gd snfinhv_1 m=1
+X_dm_N105<5> gd gd gd gd snfinhv_1 m=1
+X_dm_N105<4> gd gd gd gd snfinhv_1 m=1
+X_dm_N105<3> gd gd gd gd snfinhv_1 m=1
+X_dm_N105<2> gd gd gd gd snfinhv_1 m=1
+X_dm_N105<1> gd gd gd gd snfinhv_1 m=1
+X_dm_N105<0> gd gd gd gd snfinhv_1 m=1
+XMbcn0 vbcn vbcn gd gd snfinhv_1 m=1
+XNb2 net2098 bn2 gd gd snfinhv_2 m=1
+XNb3 net2096 bn3 gd gd snfinhv_2 m=1
+XNb1 net2099 bn2 gd gd snfinhv_2 m=1
+X_dm_N10 gd bn2 gd gd snfinhv_2 m=1
+MNbcn3 bn3 vbcn net2096 gd nch_18_mac l=0.202u nfin=9 m=6
+MNbcn1 out vbcn net2099 gd nch_18_mac l=0.202u nfin=9 m=6
+MNbcn2 bn2 vbcn net2098 gd nch_18_mac l=0.202u nfin=9 m=6
+M_dm_Mcb0 gd bn2 gd gd nch_18_mac l=0.202u nfin=9 m=6
+M_pd_Men3 netk0 en_bias_h gd gd nch_18_mac l=0.152u nfin=16 m=4
+.end opamp
