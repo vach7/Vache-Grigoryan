@@ -1,7 +1,6 @@
 circuit = []
 def parse_netlist(file_path):
     global circuit
-    # HSPICE netlist to Python
 
     with open(file_path, 'r') as file:
         lines = file.readlines()
@@ -14,7 +13,6 @@ def parse_netlist(file_path):
 
     for line in lines:
         line = line.strip()
-        # Skip comments and empty lines
 
         if line.startswith("*") or not line:
             continue
@@ -49,7 +47,6 @@ def parse_netlist(file_path):
 def write_netlist(file_path):
     global circuit
 
-    # Python object to netlist
     with open(file_path, 'w') as file:
         for sub in circuit:
             sub_circuit = sub["sub_circuit"]
@@ -72,7 +69,6 @@ def write_netlist(file_path):
                 line = f"{dummy_transistor['parameter']} {dummy_transistor['value']}\n"
                 file.write(line)
 
-                # Usage
 parse_netlist("opamp_netlist.txt")
 print("Parsed Circuit Structure:", circuit)
 write_netlist("parameters_NEW.txt")
